@@ -53,3 +53,20 @@ Constraints
 There are no constraints to your implemented solution, we have provided a skeleton framework to extend from however you are free to modify, remove, or ignore these according to what you perceive to be the best solution.
 Use whatever tools you are comfortable with, if you don't have access to anything we recommend you use Visual Studio 2019 Community Edition (https://visualstudio.microsoft.com/vs/). It's free and will allow you to complete the exercise.
 We expect this exercise should take around 4 hours.
+
+Comments
+---------------------------------------------------------------------------------------------------
+
+### Environment
+__IDE__: Visual Studio 2017  
+__Framwork__: .NET 4.5  
+__Git repo__: https://Erwan_Cheriaux@bitbucket.org/Erwan_Cheriaux/clienttools-technicaltest.git  
+
+### Tools
+NUnit 3 Test Adapter v3.17.0  
+CodeMaid v11.2  
+GhostDoc v2020.2.20270  
+Markdown Editor v1.12.253  
+
+### Packages
+NUnit v3.13.2  
