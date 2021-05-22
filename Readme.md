@@ -80,6 +80,6 @@ Since this methode is private, it can be tested by NUnit only through the public
 
 ### Requirement 2 - Check Exclusions List
 
-Once the partNumber is valid, the JSON file Exclusion is Deserialize with __Newtonsoft.Json__ and convert to a \<IEnumerable\<PartSummary\>\> object.
+Once the partNumber is valid, the JSON file Exclusion is Deserialize with __Newtonsoft.Json__ and convert to a <IEnumerable<PartSummary\>\> object.
 Note that I'm assuming Exclusion.json file exists and has valid content.
 Then an empty PartSummary list is returned if the partNumber is found in the exclusion list, regardless of the partNumber case.
