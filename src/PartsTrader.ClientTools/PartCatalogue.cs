@@ -1,6 +1,5 @@
 ﻿using PartsTrader.ClientTools.Api;
 using PartsTrader.ClientTools.Api.Data;
-using System;
 using System.Collections.Generic;
 
 namespace PartsTrader.ClientTools
@@ -11,7 +10,7 @@ namespace PartsTrader.ClientTools
         {
             ValidPartNumber(partNumber);
 
-            throw new NotImplementedException();
+            return new PartSummary[] { };
         }
 
         /// <summary>Determines whether the partNumber valid the specification {digit * 4}-{alphanumeric * 4}{alphanumeric*}.</summary>
