@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-
-using PartsTrader.ClientTools.Api.Data;
+﻿using PartsTrader.ClientTools.Api.Data;
+using System.Collections.Generic;
 
 namespace PartsTrader.ClientTools.Api
 {
