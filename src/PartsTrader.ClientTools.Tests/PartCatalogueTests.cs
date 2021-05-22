@@ -74,5 +74,12 @@ namespace PartsTrader.ClientTools.Tests
                 partCatalogue.GetCompatibleParts("1234abcd");
             });
         }
+
+        [TestCase]
+        public void GetCompatibleParts_PartNumberInTheExclusionListWithDifferentCase_Empty()
+        {
+            PartCatalogue partCatalogue = new PartCatalogue();
+            Assert.IsEmpty(partCatalogue.GetCompatibleParts("1234-ABCD"));
+        }
     }
 }
