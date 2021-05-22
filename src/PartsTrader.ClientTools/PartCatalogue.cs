@@ -18,6 +18,12 @@ namespace PartsTrader.ClientTools
 
             IEnumerable<PartSummary> partSummaryExclusionList = JsonConvert.DeserializeObject<IEnumerable<PartSummary>>(jsonText);
 
+            //Check PartNumber against the local exclusions list
+            foreach (PartSummary partSummaryExclusion in partSummaryExclusionList)
+            {
+                if (partSummaryExclusion.PartNumber.ToLower() == partNumber.ToLower()) return new PartSummary[] { };
+            }
+
             return new PartSummary[] { };
         }
 
