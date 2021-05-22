@@ -77,3 +77,9 @@ Newtonsoft.Json v13.0.1
 I created a method __ValidPartNumber(string value)__ in the class __PartCatalogue__. This private method is only used by the method __GetCompatibleParts(string partNumber)__ to throw an __InvalidPartException__ when the partNumber does not respect the specification.
 If subsequently, this function need to be used by other classes to check a PartNumber, then the function could be moved into a helper class and set as public.
 Since this methode is private, it can be tested by NUnit only through the public method __GetCompatibleParts(string partNumber)__ with __Assert.Throws<InvalidPartException>__ when the partNumber is not valid.
+
+### Requirement 2 - Check Exclusions List
+
+Once the partNumber is valid, the JSON file Exclusion is Deserialize with __Newtonsoft.Json__ and convert to a \<IEnumerable\<PartSummary\>\> object.
+Note that I'm assuming Exclusion.json file exists and has valid content.
+Then an empty PartSummary list is returned if the partNumber is found in the exclusion list, regardless of the partNumber case.
