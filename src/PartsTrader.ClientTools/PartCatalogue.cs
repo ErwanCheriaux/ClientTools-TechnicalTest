@@ -1,6 +1,9 @@
-﻿using PartsTrader.ClientTools.Api;
+﻿using Newtonsoft.Json;
+using PartsTrader.ClientTools.Api;
 using PartsTrader.ClientTools.Api.Data;
+using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace PartsTrader.ClientTools
 {
@@ -9,6 +12,11 @@ namespace PartsTrader.ClientTools
         public IEnumerable<PartSummary> GetCompatibleParts(string partNumber)
         {
             ValidPartNumber(partNumber);
+
+            string jsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Exclusions.json");
+            string jsonText = File.ReadAllText(jsonPath);
+
+            IEnumerable<PartSummary> partSummaryExclusionList = JsonConvert.DeserializeObject<IEnumerable<PartSummary>>(jsonText);
 
             return new PartSummary[] { };
         }
