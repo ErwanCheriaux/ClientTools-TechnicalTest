@@ -14,6 +14,15 @@ namespace PartsTrader.ClientTools
             throw new NotImplementedException();
         }
 
+        /// <summary>Determines whether the partNumber valid the specification {digit * 4}-{alphanumeric * 4}{alphanumeric*}.</summary>
+        /// <param name="value">partNumber value to check.</param>
+        /// <exception cref="InvalidPartException">
+        /// The specified value hasn't one dash only: '{partNumber}'.
+        /// The specified value doesn't contain 4 digits before the dash: '{partNumber}'.
+        /// The specified value doesn't contains digits only before the dash: '{partNumber}'.
+        /// The specified value contains less than 4 alphanumeric char after the dash: '{partNumber}'.
+        /// The specified value doesn't contains alphanumeric char only after the dash: '{partNumber}'.
+        /// </exception>
         private void ValidPartNumber(string value)
         {
             string[] partNumber = value.Split('-');
