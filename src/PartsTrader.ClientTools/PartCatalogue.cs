@@ -1,6 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using Moq;
+using Newtonsoft.Json;
 using PartsTrader.ClientTools.Api;
 using PartsTrader.ClientTools.Api.Data;
+using PartsTrader.ClientTools.Integration;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,7 +26,19 @@ namespace PartsTrader.ClientTools
                 if (partSummaryExclusion.PartNumber.ToLower() == partNumber.ToLower()) return new PartSummary[] { };
             }
 
-            return new PartSummary[] { };
+            //Mocking the IPartsTraderPartsService interface to test the methode FindAllCompatibleParts
+            PartSummary partSummaryDto = new PartSummary()
+            {
+                PartNumber = partNumber,
+                Description = "This is a mocking part summary."
+            };
+
+            Mock<IPartsTraderPartsService> _partsTraderpartsService = new Mock<IPartsTraderPartsService>();
+            _partsTraderpartsService.Setup(x => x.FindAllCompatibleParts(partNumber))
+                .Returns(() => new List<PartSummary> { partSummaryDto });
+
+            //Looked up via the PartsTrader Parts Service
+            return _partsTraderpartsService.Object.FindAllCompatibleParts(partNumber);
         }
 
         /// <summary>Determines whether the partNumber valid the specification {digit * 4}-{alphanumeric * 4}{alphanumeric*}.</summary>
