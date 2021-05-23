@@ -72,6 +72,7 @@ Markdown Editor v1.12.253
 NUnit v3.13.2  
 Newtonsoft.Json v13.0.1  
 Moq v4.16.1  
+Linq v4.3.0  
 
 ### Requirement 1 - Validate Part Number
 
