@@ -7,17 +7,18 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+      WORKSPACE: ./src/
+
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
-    - name: show directory
-      run: ls
     - name: Restore dependencies
-      run: nuget restore
+      run: nuget restore $WORKSPACE
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build $WORKSPACE --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test $WORKSPACE --no-build --verbosity normal
