@@ -1,5 +1,8 @@
 ﻿using NUnit.Framework;
 using PartsTrader.ClientTools.Api;
+using PartsTrader.ClientTools.Api.Data;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PartsTrader.ClientTools.Tests
 {
@@ -83,11 +86,18 @@ namespace PartsTrader.ClientTools.Tests
         }
 
         [TestCase]
-        public void GetCompatibleParts_PartNumberInTheDataListWithDifferentCase_NotEmpty()
+        public void GetCompatibleParts_PartNumberInTheDataList_FindCompatibleParts()
         {
+            //Arrange
+            string partNumber = "5772-MetaDATA";
             PartCatalogue partCatalogue = new PartCatalogue();
-            Assert.IsNotEmpty(partCatalogue.GetCompatibleParts("5772-MetaDATA"));
-        }
 
+            //Act
+            IEnumerable<PartSummary> compatibleParts = partCatalogue.GetCompatibleParts(partNumber);
+            PartSummary compatiblePart = compatibleParts.First(x => x.PartNumber == partNumber);
+
+            //Assert
+            Assert.AreEqual(partNumber, compatiblePart.PartNumber);
+        }
     }
 }
