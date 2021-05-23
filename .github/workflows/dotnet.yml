@@ -8,15 +8,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - cd src/
     - uses: actions/checkout@v2
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
+      uses: ./src/
       run: dotnet restore
     - name: Build
+      uses: ./src/
       run: dotnet build --no-restore
     - name: Test
+      uses: ./src/
       run: dotnet test --no-build --verbosity normal
