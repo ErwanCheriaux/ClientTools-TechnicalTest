@@ -13,6 +13,8 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
+    - name: show directory
+      run: ls
     - name: Move into src directory
       run: cd ./src/
     - name: Restore dependencies
