@@ -141,3 +141,5 @@ Then the Data.json can easily be generated with the following bash command:
 ```bash
 python PartSummaryGenerator.py >> Data.json
 ```
+
+Finally, I created a class PartsTraderPartsService inheriting from IPartsTraderPartsService looking for close enough data in the system regarding the partNumber input.
