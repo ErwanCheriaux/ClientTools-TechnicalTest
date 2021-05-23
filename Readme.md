@@ -63,8 +63,8 @@ __Framwork__: .NET 4.5
 __Github__: https://github.com/ErwanCheriaux/ClientTools-TechnicalTest  
 
 Note that I initially created a git repo on __Bitbucket__ which I then migrated to __Github__ to be able to set up a CI / CD.
-Indeed, I faced trouble to setup and restore .net dependencies with the Bitbucket pipeline.
-The Github action builds and runs all NUnit tests every push or merge on the master branch.
+Indeed, I faced trouble to setup and restore .net dependencies with the __Bitbucket pipeline__.
+The __Github action__ builds and runs all NUnit tests every push or merge on the master branch.
 
 ### Tools
 NUnit 3 Test Adapter v3.17.0  
@@ -105,7 +105,7 @@ _partsTraderpartsService.Setup(x => x.FindAllCompatibleParts(partNumber))
 
 ### Requirement 4 - Bonus
 
-I created an new issue on Github to generate user data to provide with the method FindAllCompatibleParts.
+I created an new __Issue__ on __Github__ to generate user data to provide with the method FindAllCompatibleParts.
 Create an inheriting class from IPartsTraderPartsService to look up via the PartsTrader Parts Service.
 Then FindAllCompatibleParts will return all partSummary with the same partId, partCode or description then the given partNumber.
 
@@ -143,3 +143,26 @@ python PartSummaryGenerator.py >> Data.json
 ```
 
 Finally, I created a class PartsTraderPartsService inheriting from IPartsTraderPartsService looking for close enough data in the system regarding the partNumber input.
+
+
+### Improvement
+
+The PartsTrader.ClientTools library could be used by a windows form app or a web app to have a human interface device.
+The PartsTrader.ClientTools library could provide Rest API tools.
+I started a __Swagger__ project to document this __Rest API__, you can find this public project with the below link:
+https://app.swaggerhub.com/apis/erwanCheriaux/PartsTrader.ClientTools.Api/1.0.0#/PartSummary
+
+Example
+https://virtserver.swaggerhub.com/erwanCheriaux/PartsTrader.ClientTools.Api/1.0.0/PartNumber?PartNumber=1234-example
+
+Returns
+```json
+[
+  {
+    "PartNumber": "1234-example",
+    "Description": "This is a description"
+  }
+]
+```
+
+#### Thank you for reading, Erwan.

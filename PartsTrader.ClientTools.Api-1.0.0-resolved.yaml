@@ -1,0 +1,58 @@
+---
+swagger: "2.0"
+info:
+  description: The PartsTrader tools will provide the ability for repairers to lookup a given part and find all compatible parts that could be used instead.
+  version: 1.0.0
+  title: PartsTrader.ClientTools.Api
+  contact:
+    name: Erwan CHERIAUX
+    email: erwan.cheriaux@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+host: virtserver.swaggerhub.com
+basePath: /erwanCheriaux/PartsTrader.ClientTools.Api/1.0.0
+tags:
+- name: User
+  description: Operations available to regular User
+schemes:
+- https
+paths:
+  /PartNumber:
+    get:
+      tags:
+      - User
+      summary: searches part summary
+      description: |
+        Retrieves all compatible parts for the nominated part
+      operationId: searchInventory
+      produces:
+      - application/json
+      parameters:
+      - name: PartNumber
+        in: query
+        description: pass the partnumber to look up
+        required: true
+        type: string
+      responses:
+        "200":
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PartSummary'
+        "400":
+          description: bad input parameter
+definitions:
+  PartSummary:
+    type: object
+    required:
+    - Description
+    - PartNumber
+    properties:
+      PartNumber:
+        type: string
+        example: 1234-example
+      Description:
+        type: string
+        example: This is a description
