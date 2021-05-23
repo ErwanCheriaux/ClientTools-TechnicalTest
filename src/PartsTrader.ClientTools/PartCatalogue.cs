@@ -1,5 +1,4 @@
-﻿using Moq;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using PartsTrader.ClientTools.Api;
 using PartsTrader.ClientTools.Api.Data;
 using PartsTrader.ClientTools.Integration;
