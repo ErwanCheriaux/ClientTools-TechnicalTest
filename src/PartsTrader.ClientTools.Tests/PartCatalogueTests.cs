@@ -99,5 +99,19 @@ namespace PartsTrader.ClientTools.Tests
             //Assert
             Assert.AreEqual(partNumber, compatiblePart.PartNumber);
         }
+
+        [TestCase]
+        public void GetCompatibleParts_PartNumberInTheDataList_FindFourCompatibleParts()
+        {
+            //Arrange
+            string partNumber = "5772-MetaDATA";
+            PartCatalogue partCatalogue = new PartCatalogue();
+
+            //Act
+            IEnumerable<PartSummary> compatibleParts = partCatalogue.GetCompatibleParts(partNumber);
+
+            //Assert
+            Assert.AreEqual(4, compatibleParts.Count<PartSummary>());
+        }
     }
 }

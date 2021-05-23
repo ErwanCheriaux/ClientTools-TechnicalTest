@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Integration\PartsTraderPartsService.cs" />
     <Compile Include="Integration\IPartsTraderPartsService.cs" />
     <Compile Include="PartCatalogue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,6 +75,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

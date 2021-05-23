@@ -102,3 +102,44 @@ Mock<IPartsTraderPartsService> _partsTraderpartsService = new Mock<IPartsTraderP
 _partsTraderpartsService.Setup(x => x.FindAllCompatibleParts(partNumber))
     .Returns(() => new List<PartSummary> { partSummaryDto });
 ```
+
+### Requirement 4 - Bonus
+
+I created an new issue on Github to generate user data to provide with the method FindAllCompatibleParts.
+Create an inheriting class from IPartsTraderPartsService to look up via the PartsTrader Parts Service.
+Then FindAllCompatibleParts will return all partSummary with the same partId, partCode or description then the given partNumber.
+
+I used a Python script and the __Essential Document Generator__ library to generate user data in Json format.
+Note that this data could be organize in a simple database table to make recovery efficient.
+```python
+#!/usr/bin/python
+import random
+from essential_generators import DocumentGenerator
+
+gen = DocumentGenerator()
+
+def gen_partNumber():
+    partId = random.randrange(1000, 9999)
+    partCode = ''
+    while not (len(partCode) >= 4 and partCode.isalnum()):
+        partCode = gen.word()
+    partNumber = str(partId) + str('-') + str(partCode)
+    return str(partNumber)
+
+template = {
+    'PartNumber': gen_partNumber,
+    'Description': 'sentence'
+}
+
+gen.set_template(template)
+documents = gen.documents(100)
+
+print(documents)
+```
+
+Then the Data.json can easily be generated with the following bash command:
+```bash
+python PartSummaryGenerator.py >> Data.json
+```
+
+Finally, I created a class PartsTraderPartsService inheriting from IPartsTraderPartsService looking for close enough data in the system regarding the partNumber input.
