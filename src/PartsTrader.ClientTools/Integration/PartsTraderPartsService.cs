@@ -18,7 +18,7 @@ namespace PartsTrader.ClientTools.Integration
 
             foreach (PartSummary partSummary in partSummaryDataList)
             {
-                if (partSummary.PartNumber == partNumber) partSummaryList.Add(partSummary);
+                if (partSummary.IsCloseEnough(partNumber)) partSummaryList.Add(partSummary);
             }
 
             return partSummaryList;
