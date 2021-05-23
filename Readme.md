@@ -85,3 +85,15 @@ Since this methode is private, it can be tested by NUnit only through the public
 Once the partNumber is valid, the JSON file Exclusion is Deserialize with __Newtonsoft.Json__ and convert to a <IEnumerable<PartSummary\>\> object.
 Note that I'm assuming Exclusion.json file exists and has valid content.
 Then an empty PartSummary list is returned if the partNumber is found in the exclusion list, regardless of the partNumber case.
+
+### Requirement 3 - Lookup Compatible Parts
+
+It is straightforward to mock the interface IPartsTraderPartsService and use the method FindAllCompatibleParts with the __Moq__ library as follows:
+
+```Csharp
+using Moq;
+
+Mock<IPartsTraderPartsService> _partsTraderpartsService = new Mock<IPartsTraderPartsService>();
+_partsTraderpartsService.Setup(x => x.FindAllCompatibleParts(partNumber))
+    .Returns(() => new List<PartSummary> { partSummaryDto });
+```
