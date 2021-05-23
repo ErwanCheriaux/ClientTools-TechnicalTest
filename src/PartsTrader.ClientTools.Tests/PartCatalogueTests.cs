@@ -81,5 +81,13 @@ namespace PartsTrader.ClientTools.Tests
             PartCatalogue partCatalogue = new PartCatalogue();
             Assert.IsEmpty(partCatalogue.GetCompatibleParts("1234-ABCD"));
         }
+
+        [TestCase]
+        public void GetCompatibleParts_PartNumberInTheDataListWithDifferentCase_NotEmpty()
+        {
+            PartCatalogue partCatalogue = new PartCatalogue();
+            Assert.IsNotEmpty(partCatalogue.GetCompatibleParts("5772-MetaDATA"));
+        }
+
     }
 }
