@@ -17,6 +17,8 @@ jobs:
       run: ls
     - name: Move into src directory
       run: cd ./src/
+    - name: show directory
+      run: ls
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
