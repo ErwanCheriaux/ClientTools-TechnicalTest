@@ -16,7 +16,7 @@ jobs:
     - name: show directory
       run: ls
     - name: Move into src directory
-      run: cd ./src/
+      run: cd src
     - name: show directory
       run: ls
     - name: Restore dependencies
