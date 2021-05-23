@@ -60,7 +60,11 @@ Comments
 ### Environment
 __IDE__: Visual Studio 2017  
 __Framwork__: .NET 4.5  
-__Git repo__: https://Erwan_Cheriaux@bitbucket.org/Erwan_Cheriaux/clienttools-technicaltest.git  
+__Github__: https://github.com/ErwanCheriaux/ClientTools-TechnicalTest  
+
+Note that I initially created a git repo on __Bitbucket__ which I then migrated to __Github__ to be able to set up a CI / CD.
+Indeed, I faced trouble to setup and restore .net dependencies with the Bitbucket pipeline.
+The Github action builds and runs all NUnit tests every push or merge on the master branch.
 
 ### Tools
 NUnit 3 Test Adapter v3.17.0  
@@ -73,6 +77,7 @@ NUnit v3.13.2
 Newtonsoft.Json v13.0.1  
 Moq v4.16.1  
 Linq v4.3.0  
+ReferenceAssemblies.net45 v1.0.2  
 
 ### Requirement 1 - Validate Part Number
 
